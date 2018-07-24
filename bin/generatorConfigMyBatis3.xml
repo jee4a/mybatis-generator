@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration PUBLIC
+ "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+ "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+	<!-- This should cause an error because sqlMapGenerator is required if there 
+		is no javaClientGenerator -->
+	<context id="MyBatis3NoClient" targetRuntime="MyBatis3"
+		defaultModelType="flat">
+		<property name="javaFileEncoding" value="UTF-8"/>
+		<plugin type="org.mybatis.generator.plugins.EqualsHashCodePlugin" />
+
+		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
+			connectionURL="jdbc:mysql://172.20.10.200:3306/backend" userId="test"
+			password="1123456" />
+
+		<javaModelGenerator targetPackage="com.jee4a.backend.hub.model.member"
+			targetProject="../mybatis-generator/output">
+			<property name="enableSubPackages" value="true" />
+			<property name="trimStrings" value="true" />
+		</javaModelGenerator>
+		<sqlMapGenerator targetPackage="com.jee4a.backend.hub.mapper.member"
+			targetProject="../mybatis-generator/output">
+			<property name="enableSubPackages" value="true" />
+		</sqlMapGenerator>
+		<javaClientGenerator type="XMLMAPPER"
+			targetPackage="com.jee4a.backend.hub.mapper.member" targetProject="../mybatis-generator/output">
+		</javaClientGenerator>
+		  
+			  <table tableName="Passport" enableCountByExample="false"
+			enableUpdateByExample="false" enableDeleteByExample="false"
+			enableSelectByExample="false" selectByExampleQueryId="false" />
+			
+		 
+	</context>
+
+</generatorConfiguration>
